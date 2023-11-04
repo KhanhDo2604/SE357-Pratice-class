@@ -1,0 +1,62 @@
+@startuml
+|Nhân viên|
+start
+:Nhập thông tin đăng nhập;
+if (Đăng nhập thành công?) then (Có)
+  :Quản lý thông tin khách hàng;
+  if (Thêm, sửa, xóa thông tin) then (Có)
+    :Nhập thông tin;
+  else (Không)
+    :Liên hệ và lịch sử đặt phòng;
+  endif
+  if (Quản lý phòng) then (Có)
+    :Quản lý tình trạng phòng;
+  else (Không)
+    if (Đặt phòng) then (Có)
+      :Kiểm tra tình trạng phòng;
+      if (Phòng trống) then (Có)
+        :Đặt phòng cho khách hàng;
+      else (Không)
+        :Thông báo phòng đang bận;
+      endif
+      :Xác nhận đặt phòng với khách hàng;
+    else (Không)
+      if (Quản lý thanh toán) then (Có)
+        :Hỗ trợ thanh toán;
+      else (Không)
+        if (Quản lý dịch vụ) then (Có)
+          :Ghi nhận và Quản lý lịch trình các dịch vụ;
+        else (Không)
+          if (Báo cáo và thống kê) then (Có)
+            :Xem báo cáo và thống kê;
+          else (Không)
+            if (Quản lý sự kiện) then (Có)
+              :Xác nhận và quản lý thông tin về các sự kiện ;
+            else (Không)
+              if (Quản lý bàn và đặt bàn) then (Có)
+                :Quản lý tình trạng bàn;
+                if (Đặt bàn) then (Có)
+                  :Đặt bàn cho khách hàng;
+                else (Không)
+                  :Kiểm tra tình trạng bàn;
+                  if (Bàn trống) then (Có)
+                    :Chọn bàn cho khách hàng;
+                  else (Không)
+                    :Thông báo bàn đang bận;
+                  endif
+                endif
+              else (Không)
+                :Kết thúc hoạt động;
+              endif
+            endif
+          endif
+        endif
+      endif
+    endif
+  endif
+else (Không)
+  :Kết thúc hoạt động;
+endif
+|Nhân viên|
+stop
+@enduml

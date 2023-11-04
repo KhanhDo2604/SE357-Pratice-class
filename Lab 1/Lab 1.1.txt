@@ -1,0 +1,14 @@
+5. If an environment does not currently engage in solid requirements engineering practices, should tools be introduced?
+	• FitNesse for an agile environment.
+	• Cucumber is a tool that is widely used in Scrum environments.
+
+6. What sort of problems might you find through a traceability matrix that you might not see without one?
+	• Business requirements (Requirements Stakeholder Traceability Matrix)
+	• User requirements, UI requirements, technical requirements
+	• Functional requirements, non-functional requirements (Requirements Source Traceability Matrix)
+
+7. How is AI being proposed for knowledge acquisition and representation in requirements specifications?
+	•“Speech Understanding Methodology” techniques with the capability to “listen in” on a conversation and suitably collect stakeholders’ declarations into a distinct vision.
+	•“Automatic Keywords Mapping,” another AI technique being investigated that can enhance the requirements elicitations. Many requirements issues are related to not having the stakeholders able to depict their requirements properly, or the ignorance of the domain experts and developers to “observable” words that lead essentially to system requirements. These issues can be eliminated by automatically mapping every keyword spoken by each stakeholder. The earlier studies released a keyword mapping technique for designers so that they can recognize the keywords used by stakeholders to assist them in making ideal requirements.
+	•Case-based reasoning is also being investigated for requirement elicitation, which can reduce the problem of natural language understanding as well as save the time of the requirement expert. 
+	•There has also been recent research on the use of machine learning algorithms to identify user preferences based on their sentiment.

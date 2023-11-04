@@ -1,3 +1,41 @@
+1. What criteria should be used in choosing an appropriate requirements engineering tool?
+	Sud and Arthur (2003) evaluated a number of requirements management tools using the following dimensions:
+		+ Requirements traceability mechanism.
+		+ Requirements analysis mechanism
+		+ Security and accessibility mechanism
+		+ Portability and backend compatibility
+		+ Configuration management approach
+		+ Communication and collaboration mechanism
+		+ Change management support
+		+ Online publishing support
+		+ Usability features such as word processor compatibility
+		+ SRS documentation format
+	Carrillo de Gea et al. (2021) provided an alternative list of 17 items to be used in the evaluation of RE tool capabilities:
+		+ Organization of requirements with metadata, attributes, and reuse
+		+ Reports, database queries, and open interface language
+		+ Internal checks, that is, consistency, dependencies, and history
+		+ Traceability support, that is, drag and drop (horizontal and vertical)
+		+ Providing support for reuse
+		+ Remote working, cloud only
+		+ Multiple views of requirements
+		+ Performance
+		+ Collaboration, workflow management
+		+ Easily adapted and integrated into business processes
+		+ Federation and notification with ALM/PLM tools
+		+ Export/import with standard formats
+		+ Macros for repeated commands
+		+ Training and learning curve effort
+		+ Agile, CI/CD, and DevOps
+		+ Intelligent support
+		+ Scalability
+2. Are there any drawbacks to using certain tools in requirements engineering activities?
+		The tool market is rapidly changing and that tools are becoming increasingly complex and difficult to use. The complexity of the expensive commercial tools then creates opportunities for inexpensive tools to emerge but don’t offer sophisticated features. Furthermore, these studies have indicated that validation functionalities such as consistency, correctness, and completeness are still lacking in most of the tools.
+3. When selecting an open-source tool, what characteristics should you look for?
+		It is mind mapping and wiki-based.
+4. How can tools enable distributed, global requirements engineering activities? What are the drawbacks in this regard?
+		Wikis can be used for collaboration, for example, to facilitate group work, card entry (for card sorting), template completions, surveys, and for organizing the requirements document. Moreover, wiki-based requirements can be exported directly to publishing tools and validation tools. Several researchers have successfully used wiki-based requirements techniques for various requirements activities including stakeholder collaboration (Ferreira and da Silva 2008), requirements negotiation (Yang et al. 2008), and distributed elicitation (Liang et al. 2009).
+		Various mobile technologies such as cell phones and personal digital assistants can be used to capture requirements information in place. For example, while physicians are working with patients, they can transmit information about the activities they are conducting directly to the requirements engineer, without the latter having to be on site. Using mobile devices is particularly useful because they enable instantaneous recording of ideas and discoveries. Such an approach can support brainstorming, scenario generation, surveys, and many other standard requirements elicitation techniques even when the customer is not easily accessible (such as in offshore software development situations).
+		Current mobile applications can deliver some but not all possible benefits, such as using the workplace context (for example, who is being observed, where she is, and what she’s doing).
 5. If an environment does not currently engage in solid requirements engineering practices, should tools be introduced?
 	• FitNesse for an agile environment.
 	• Cucumber is a tool that is widely used in Scrum environments.

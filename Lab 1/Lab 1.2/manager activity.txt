@@ -1,0 +1,52 @@
+@startuml
+|Người quản lý|
+start
+:Đăng nhập;
+if (Đăng nhập thành công?) then (Có)
+  if (Quản lý thanh toán) then (Có)
+    :Quản lý doanh thu;
+  else (Không)
+    if (Báo cáo và thống kê) then (Có)
+      :Xem báo cáo và đưa ra chiến lược;
+    else (Không)
+      if (Quản lý sự kiện và hội nghị) then (Có)
+        :Quản lý thời gian các sự kiện;
+      else (Không)
+        if (Quản lý thông tin nhân viên) then (Có)
+          :Thêm, sửa đổi và xóa thông tin của nhân viên;
+          :Thông tin cá nhân, liên hệ và vị trí công việc;
+        else (Không)
+          if (Phân quyền và quản lý vai trò của nhân viên) then (Có)
+            :Xác định quyền truy cập và vai trò của nhân viên;
+          else (Không)
+            if (Quản lý lịch làm việc của nhân viên) then (Có)
+              :Gán nhiệm vụ, kiểm tra lịch trực và quản lý nghỉ phép;
+            else (Không)
+              if (Quản lý kho và nguồn cung cấp) then (Có)
+                :Theo dõi lượng hàng tồn kho;
+                :Quản lý đặt hàng mới cho nhà hàng;
+                :Thực phẩm và đồ uống;
+              else (Không)
+                if (Quản lý thực đơn và giá cả nhà hàng) then (Có)
+                  :Cập nhật thực đơn và giá cả;
+                else (Không)
+                  if (Quản lý lịch trình của nhà hàng) then (Có)
+                    :Theo dõi lịch trình hoạt động của nhà hàng;
+                    :Sự kiện đặc biệt như tiệc cưới hoặc họp mặt;
+                  else (Không)
+                    :Kết thúc hoạt động;
+                  endif
+                endif
+              endif
+            endif
+          endif
+        endif
+      endif
+    endif
+  endif
+else (Không)
+  :Kết thúc;
+endif
+|Người quản lý|
+stop
+@enduml

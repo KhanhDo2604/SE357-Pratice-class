@@ -1,0 +1,47 @@
+@startuml
+|Khách hàng|
+start
+:Kiểm tra Đã là thành viên?;
+if (Chưa là thành viên?) then (Chưa)
+  :Nhân viên cập nhật thông tin;
+  :Đăng nhập;
+else (Đã là thành viên)
+  :Đăng nhập;
+endif
+if (Đăng nhập thành công?) then (Có)
+  :Quản lý thông tin khách hàng;
+  if (Có thông tin cá nhân?) then (Có)
+    :Chỉnh sửa thông tin cá nhân;
+  else (Không)
+    :Nhân viên cập nhật thông tin;
+  endif
+  :Quản lý đặt phòng;
+  if (Đặt phòng qua trang web hoặc ứng dụng di động?) then (Có)
+    :Đặt phòng qua trang web hoặc ứng dụng di động;
+  else (Không)
+    :Đặt phòng tại khách sạn;
+  endif
+  :Quản lý thanh toán;
+  if (Thực hiện thanh toán?) then (Có)
+    :Tính toán tổng số tiền;
+    :Hỗ trợ thanh toán (Tiền mặt, thẻ tín dụng, ví điện tử);
+  else (Không)
+    :Tiếp tục hoặc thoát;
+  endif
+  :Quản lý dịch vụ và tiện ích;
+  if (Đặt dịch vụ hoặc tiện ích?) then (Có)
+    :Đặt dịch vụ hoặc tiện ích;
+  else (Không)
+    :Tiếp tục hoặc thoát;
+  endif
+  :Quản lý đặt lịch sự kiện;
+  if (Đặt lịch sự kiện?) then (Có)
+    :Đặt lịch sự kiện;
+  else (Không)
+    :Tiếp tục hoặc thoát;
+  endif
+else (Không)
+  :Tiếp tục hoặc thoát;
+endif
+|Khách hàng| --> end
+@enduml

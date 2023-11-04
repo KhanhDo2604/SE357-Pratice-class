@@ -1,0 +1,129 @@
+@startuml
+class User {
+  - userID: int
+  - username: string
+  - password: string
+  - name: string
+  - contactInfo: string
+  + managePersonalInfo()
+}
+
+class Customer {
+  + manageBookingHistory()
+  + bookRoom()
+  + payment()
+  + bookEvent()
+  + orderFood()
+}
+
+class Employee {
+  + manageSchedule()
+  + manageReservation()
+  + manageServices()
+  + manageEvent()
+}
+
+class HotelRoom {
+  - roomNumber: int
+  - status: string
+  - maintenanceStatus: string
+  + bookRoom()
+  + checkAvailability()
+  + manageMaintenance()
+}
+
+class Reservation {
+  - reservationID: int
+  - checkInDate: date
+  - checkOutDate: date
+  + calculateTotalAmount()
+}
+
+class Service {
+  - serviceID: int
+  - serviceName: string
+  - price: double
+}
+
+class Event {
+  - eventID: int
+  - eventName: string
+  - date: date
+  - location: string
+  + bookEvent()
+  + manageEventDetails()
+}
+
+class Restaurant {
+  + manageMenu()
+  + manageTableStatus()
+}
+
+class Menu {
+  - menuID: int
+  - menuItem: string
+  - type: string
+  - price: double
+}
+
+class Payment {
+  + calculateTotalAmount()
+}
+
+class Manager {
+  + manageEmployeeInfo()
+  + manageRolesAndPermissions()
+  + manageWorkSchedules()
+  + manageSupplies()
+  + manageSchedules()
+  + manageEmployeeRole()
+}
+
+class Statistic{
+  - period: date
+  - profit: double
+  + generateReportsAndStatistics()
+}
+
+class Supply{
+  - amount: int
+  - totalPrice: double
+  - name: String
+  - dateSupply: date
+}
+
+class Schedule {
+ + manageEmployeeSchedules()
+ + manageHotelSchedules()
+}
+
+class ProcessPayment {
+ - name: String
+}
+
+Customer --|> User
+Employee --|> User
+Manager --|> User
+Customer -- Reservation
+Employee -- Reservation
+Reservation -- HotelRoom
+Reservation -- Service
+Customer --|> Service
+Employee --|> Service
+Customer -- Event
+Employee -- Event
+Restaurant -- Menu
+Employee -- Restaurant
+Customer -- Restaurant
+Manager -- Restaurant
+Manager -- Event
+Customer -- Payment
+Employee -- Payment
+Manager -- Payment
+Manager -- Supply
+Manager -- Schedule
+Manager -- Statistic
+Employee -- Statistic
+Payment -- ProcessPayment
+
+@enduml

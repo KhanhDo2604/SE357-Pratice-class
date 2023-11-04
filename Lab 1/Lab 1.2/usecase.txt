@@ -1,0 +1,45 @@
+@startuml
+left to right direction
+
+actor "Khách hàng" as Customer
+actor "Nhân viên" as Staff
+actor "Quản lý" as Manager
+actor "Hệ thống" as System
+
+rectangle "Hệ thống khách sạn" {
+ System --> (Tương thích và mở rộng)
+ System --> (Báo cáo và thống kê)
+
+ rectangle "Quản lý khách sạn" {
+   Customer --> (Đặt phòng)
+   Customer --> (Thanh toán)
+   Customer --> (Quản lý thông tin cá nhân)
+   Staff --> (Quản lý thông tin khách hàng)
+   Staff --> (Quản lý phòng và đặt phòng)
+   Staff --> (Quản lý dịch vụ khách hàng và các tiện ích)
+ }
+
+ Staff --> (Báo cáo và thống kê)
+ Manager --> (Quản lý thông tin nhân viên)
+ Manager --> (Quản lý lịch làm việc của nhân viên)
+ Staff --> (Quản lý sự kiện và hội nghị)
+ Manager --> (Quản lý sự kiện và hội nghị)
+ Staff --> (Quản lý lịch trình)
+ Manager --> (Phân quyền và quản lý vai trò của nhân viên)
+
+ rectangle "Quản lý nhà hàng" {
+   Staff --> (Quản lý bàn và đặt bàn)
+   Manager --> (Quản lý thực đơn và giá cả)
+   Manager --> (Quản lý bàn và đặt bàn)
+   Manager --> (Quản lý lịch trình)
+   Manager --> (Quản lý kho và nguồn cung cấp)
+ }
+}
+
+Customer --> (Đăng nhập): <<include>>
+Staff--> (Đăng nhập): <<include>>
+Manager --> (Đăng nhập): <<include>>
+
+@enduml
+
+

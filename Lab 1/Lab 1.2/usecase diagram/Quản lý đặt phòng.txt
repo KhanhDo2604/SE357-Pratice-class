@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+actor Nhan_vien as "Nhân viên"
+actor Khach_hang as "Khách hàng"
+
+usecase Dat_phong as "Đặt phòng"
+usecase Xac_nhan_dat_phong as "Xác nhận đặt phòng"
+usecase Dang_nhap as "Đăng nhập"
+usecase Kiem_tra_ve_thoi_gian as "Kiểm tra về thời gian"
+usecase Kiem_tra_tinh_trang_phong as "Kiểm tra tình trạng phòng"
+usecase So_luong_phong as "Số lượng phòng"
+usecase Chon_ngay_checkin_checkout as "Chọn ngày check-in/check-out"
+usecase Chon_loai_phong as "Chọn loại phòng"
+
+Khach_hang -- Dat_phong
+Nhan_vien -- Xac_nhan_dat_phong
+Nhan_vien  -- Dat_phong
+
+Dat_phong ..> Dang_nhap : <<includes>>
+Xac_nhan_dat_phong ..> Dang_nhap : <<includes>>
+Xac_nhan_dat_phong<.. Kiem_tra_ve_thoi_gian : <<includes>>
+Xac_nhan_dat_phong<.. Kiem_tra_tinh_trang_phong : <<includes>>
+Dat_phong <.. So_luong_phong : <<includes>>
+Dat_phong <.. Chon_ngay_checkin_checkout : <<includes>>
+Dat_phong <.. Chon_loai_phong : <<includes>>
+
+
+@enduml

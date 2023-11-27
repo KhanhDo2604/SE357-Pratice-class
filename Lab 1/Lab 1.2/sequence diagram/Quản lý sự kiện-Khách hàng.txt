@@ -1,0 +1,55 @@
+@startuml
+actor "Khách hàng" as customer
+participant "Hệ thống" as system
+database Database as db
+
+autonumber 1.1
+customer -> system: Đăng nhập
+activate system
+system -> db: Kiểm tra đăng nhập
+activate db
+db --> system : Trả về kết quả đăng nhập
+deactivate db
+
+alt Đăng nhập thành công
+  autonumber 2.1
+  customer -> system: Đặt sự kiện
+  system -->> customer: Hiển thị form đặt sự kiện
+  customer -> system: Điền thông tin sự kiện
+  system -->> customer: Hiển thị loại hình sự kiện
+  customer -> system: Chọn loại hình sự kiện
+  system -->> customer: Hiển thị thời gian diễn ra
+  customer -> system: Chọn thời gian diễn ra
+
+
+  system -> db: Lưu thông tin sự kiện
+  activate db
+  db --> system : Cập nhật hệ thống
+  deactivate db
+
+  autonumber 3.1
+  customer -> system: Hủy sự kiện (nếu đã có đặt trước)
+  system -> db: Kiểm tra có đặt sự kiện trước đó
+  activate db
+  db --> system : Trả về kết quả
+  deactivate db
+
+  alt Đã đặt sự kiện trước đó
+    autonumber 4.1
+    system -> db: Thực hiện hủy sự kiện
+    activate db
+    db -->> system : Trả về kết quả
+    deactivate db
+    system -->> customer: Thông báo hủy sự kiện thành công
+  else Đang không có sự kiện để hủy
+    autonumber 3.4
+    system -->> customer: Thông báo không có sự kiện để hủy
+  end
+
+else Đăng nhập không thành công
+  autonumber 1.4
+  system -->> customer: Thông báo lỗi đăng nhập
+end
+
+deactivate system
+@enduml

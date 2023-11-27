@@ -1,0 +1,43 @@
+@startuml
+actor "Khách hàng" as customer
+participant "Hệ thống" as system
+database Database as db
+
+autonumber 1.1
+customer -> system: Đăng nhập
+activate system
+system -> db: Kiểm tra đăng nhập
+activate db
+db -->> system : Trả về kết quả đăng nhập
+deactivate db
+
+alt Đăng nhập thành công
+  autonumber 2.1
+  customer -> system: Xem danh sách loại phòng
+  system -> db: Load danh sách loại phòng
+  activate db
+  db -->> system : Trả về kết quả
+  deactivate db
+
+  autonumber 3.1
+  system -->> customer: Hiển thị danh sách loại phòng
+  customer -> system: Đặt phòng online
+  system -->> customer: Hiển thị giao diện đặt phòng
+  customer -> system: Nhập số lượng phòng, chọn ngày check-in/check-out, chọn loại phòng
+
+  autonumber 4.1
+  system -> db: Lưu thông tin đặt phòng
+  activate db
+  db -->> system : Trả về kết quả
+  deactivate db
+
+  autonumber 5.1
+  system -->> customer: Gửi thông báo đặt phòng thành công
+
+else Đăng nhập không thành công
+  autonumber 1.4
+  system -->> customer: Thông báo lỗi đăng nhập
+end
+
+deactivate system
+@enduml

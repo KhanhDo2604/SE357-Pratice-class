@@ -1,0 +1,27 @@
+@startuml
+|Nhân viên|
+start
+:Đăng nhập vào hệ thống;
+if (Đăng nhập thành công?) then (Yes)
+  :Xem danh sách lịch trình sự kiện;
+  if (Chọn "Điều chỉnh thông tin sự kiện") then (Yes)
+    :Thực hiện điều chỉnh thông tin sự kiện;
+  else (No)
+    :Xác nhận đặt sự kiện;
+    if (Là thông báo đặt sự kiện mới?) then (Yes)
+      :Kiểm tra thời gian và phòng;
+      if (Thời gian và phòng hợp lệ?) then (Yes)
+        :Xác nhận đặt sự kiện;
+      else (No)
+        :Thông báo không đặt được sự kiện;
+      endif
+    else (No)
+      :Xác nhận hủy sự kiện;
+    endif
+  endif
+else (No)
+  :Thông báo lỗi đăng nhập;
+endif
+|Nhân viên|
+stop
+@enduml

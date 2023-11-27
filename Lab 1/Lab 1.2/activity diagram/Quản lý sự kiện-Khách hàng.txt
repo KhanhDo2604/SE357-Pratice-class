@@ -1,0 +1,27 @@
+@startuml
+|Khách hàng|
+start
+:Đăng nhập vào hệ thống;
+if (Đăng nhập thành công?) then (yes)
+  :Khách hàng có thể chọn đặt hoặc hủy sự kiện;
+  if (Chọn đặt sự kiện?) then (yes)
+    :Điền thông tin sự kiện (Chọn loại hình sự kiện, Chọn thời gian diễn ra);
+    :Hoàn thành đặt sự kiện;
+  else (no)
+    if (Chọn hủy sự kiện?) then (yes)
+      if (Có sự kiện được đặt trước đó?) then (yes)
+        :Chọn sự kiện cần hủy;
+        :Hoàn thành hủy sự kiện;
+      else (no)
+        :Thông báo không có sự kiện để hủy;
+      endif
+    else (no)
+      :Kết thúc hoạt động;
+    endif
+  endif
+else (no)
+  :Thông báo lỗi đăng nhập;
+endif
+|Khách hàng|
+stop
+@enduml

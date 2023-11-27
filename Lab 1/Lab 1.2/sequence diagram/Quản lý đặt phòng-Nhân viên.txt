@@ -1,0 +1,61 @@
+@startuml
+actor "Nhân viên" as employee
+participant "Hệ thống" as system
+database Database as db
+
+autonumber 1.1
+employee -> system: Đăng nhập
+activate system
+system -> db: Kiểm tra đăng nhập
+activate db
+db -->> system : Trả về kết quả đăng nhập
+deactivate db
+
+alt Đăng nhập thành công
+  autonumber 2.1
+  employee -> system: Đặt phòng tại quầy
+  system -->> employee: Hiển thị giao diện đặt phòng
+  employee -> system: Chọn số lượng phòng
+  employee -> system: Chọn ngày check-in/check-out
+  employee -> system: Chọn loại phòng
+  system -> db: Kiểm tra trạng thái phòng và thời gian
+  activate db
+  db -->> system : Trả về kết quả kiểm tra
+  deactivate db
+
+  autonumber 3.1
+  system -->> employee: Hiển thị kết quả kiểm tra
+  alt Phòng và thời gian hợp lệ
+    autonumber 4.1
+    system -> db: Lưu thông tin đặt phòng
+    activate db
+    db -->> system : Trả về kết quả
+    deactivate db
+    system -> employee: Gửi thông báo đặt phòng thành công
+  else Phòng hoặc thời gian không hợp lệ
+    autonumber 4.2
+    system -->> employee: Hiển thị thông báo lỗi
+  end
+
+  autonumber 5.1
+  system -> employee: Nhận thông báo đặt phòng online
+  system -> db: Kiểm tra trạng thái phòng và thời gian
+  activate db
+  db -->> system : Trả về kết quả kiểm tra
+  deactivate db
+  alt Phòng và thời gian hợp lệ
+    autonumber 4.1
+    system -> db: Lưu thông tin đặt phòng
+    activate db
+    db -->> system : Trả về kết quả
+    deactivate db
+    system -> employee: Gửi thông báo đặt phòng thành công
+  employee -> system: Xác nhận và thông báo
+
+else Đăng nhập không thành công
+  autonumber 1.4
+  system -->> employee: Thông báo lỗi đăng nhập
+end
+
+deactivate system
+@enduml

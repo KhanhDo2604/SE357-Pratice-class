@@ -1,0 +1,21 @@
+@startuml
+|Nhân viên|
+start
+:Đăng nhập vào hệ thống;
+if (Đăng nhập thành công?) then (Yes)
+  repeat
+    :Xem danh sách khách hàng;
+    if (Chọn khách hàng trong danh sách?) then (Yes)
+      :Chọn khách hàng;
+      :Thực hiện thêm, sửa, xóa thông tin;
+      :Cập nhật danh sách khách hàng;
+    else (No)
+    endif
+  repeat while (Tiếp tục quản lý thông tin?) is (yes) not (no)
+else (No)
+  :Hiển thị thông báo lỗi đăng nhập;
+  stop
+endif
+|Nhân viên|
+stop
+@enduml

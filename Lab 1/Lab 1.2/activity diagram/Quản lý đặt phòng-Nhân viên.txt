@@ -1,0 +1,28 @@
+@startuml
+|Nhân viên|
+start
+:Đăng nhập vào hệ thống;
+if (Kiểm tra đăng nhập) then (Thành công)
+  :Xem danh sách phòng và lịch trình;
+  if (Hình thức) then (Thông báo đặt phòng online)
+    :Xem thông báo;
+  else (Đặt phòng tại quầy)
+    :Chọn số lượng phòng, ngày check-in/check-out, loại phòng;
+  endif
+  :Kiểm tra trạng thái phòng và thời gian;
+  if (Không có xung đột) then (Thành công)
+    if (Hình thức) then (Thông báo đặt phòng online)
+      :Xác nhận và thông báo đặt phòng thành công;
+    else (Đặt phòng tại quầy)
+      :Lưu thông tin đặt phòng vào hệ thống;
+      :Gửi thông báo thành công;
+    endif
+  else (Có xung đột)
+    :Thông báo lỗi và yêu cầu kiểm tra lại;
+  endif
+else (Không thành công)
+  :Thông báo lỗi đăng nhập;
+endif
+|Nhân viên|
+stop
+@enduml

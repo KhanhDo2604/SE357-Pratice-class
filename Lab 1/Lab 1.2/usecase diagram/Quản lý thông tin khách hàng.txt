@@ -1,0 +1,18 @@
+
+@startuml 'Quản lý thông tin khách hàng'
+
+left to right direction
+skinparam packageStyle rectangle
+
+actor Nhân_viên as "Nhân viên"
+
+Nhân_viên -- (Xem danh sách khách hàng)
+
+(Xem danh sách khách hàng) <.. (Thêm thông tin khách hàng) : <<extends>>
+(Xem danh sách khách hàng) <.. (Xóa thông tin khách hàng) : <<extends>>
+(Xem danh sách khách hàng) <.. (Sửa đổi thông tin khách hàng) : <<extends>>
+(Xem danh sách khách hàng) <.. (Theo dõi lịch sử đặt phòng) : <<extends>>
+
+(Xem danh sách khách hàng) ..> (Đăng nhập): <<includes>>
+
+@enduml

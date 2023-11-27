@@ -1,0 +1,47 @@
+@startuml
+actor "Nhân viên" as employee
+participant "Hệ thống" as system
+database Database as db
+
+autonumber 1.1
+employee -> system: Đăng nhập
+activate system
+system -> db: Kiểm tra đăng nhập
+activate db
+db --> system : Trả về kết quả đăng nhập
+deactivate db
+
+alt Đăng nhập thành công
+  autonumber 2.1
+  employee -> system: Xem danh sách lịch trình sự kiện
+  system -> db: Load danh sách các sự kiện
+  activate db
+  db --> system : Trả về kết quả
+  deactivate db
+  system -->> employee: Hiển thị danh sách lịch trình
+
+  autonumber 3.1
+  employee -> system: Nhận thông báo sự kiện đặt mới hoặc hủy
+  system -->> employee: Hiển thị thông báo
+  employee -> system: Xác nhận thông tin
+  system -> db: Lưu thông tin sự kiện
+  activate db
+  db -->> system : Cập nhật danh sách sự kiện
+  deactivate db
+  
+  opt Thao tác trên thông tin
+    autonumber 4.1
+    employee -> system: Điều chỉnh thông tin sự kiện
+    system -> db: Lưu thông tin sự kiện
+    activate db
+    db -->> system : Cập nhật danh sách sự kiện
+    deactivate db
+  end
+
+else Đăng nhập không thành công
+  autonumber 1.4
+  system -->> employee: Thông báo lỗi đăng nhập
+end
+
+deactivate system
+@enduml

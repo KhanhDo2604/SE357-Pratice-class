@@ -1,0 +1,40 @@
+@startuml
+actor "Nhân viên" as employee
+participant "Hệ thống" as system
+database Database as db
+
+autonumber 1.1
+employee -> system: Đăng nhập
+activate system
+system -> db: Kiểm tra đăng nhập
+activate db
+db -->> system : Trả về kết quả đăng nhập
+deactivate db
+
+alt Đăng nhập thành công
+  autonumber 2.1
+  employee -> system: Xem danh sách khách hàng
+  system -> db: Load thông tin các khách hàng
+  activate db
+  db -->> system : Trả về danh sách
+  deactivate db
+  
+  autonumber 3.1
+  employee -> system: Chọn khách hàng trong danh sách
+  opt Thêm thông tin
+    autonumber 3.1.1
+    employee -> system: Thêm thông tin
+    employee -> system: Sửa thông tin
+    employee -> system: Xóa thông tin
+  end
+
+  autonumber 4.1
+  system -> db: Cập nhật dữ liệu
+  activate db
+  db -->> system : Trả về danh sách mới
+  deactivate db
+else Đăng nhập không thành công
+  autonumber 1.4
+  system -->> employee: Thông báo lỗi đăng nhập
+end
+@enduml

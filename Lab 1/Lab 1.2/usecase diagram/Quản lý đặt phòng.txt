@@ -18,11 +18,11 @@ Nhan_vien  -- Dat_phong
 
 Dat_phong ..> Dang_nhap : <<includes>>
 Xac_nhan_dat_phong ..> Dang_nhap : <<includes>>
-Xac_nhan_dat_phong<.. Kiem_tra_ve_thoi_gian : <<includes>>
-Xac_nhan_dat_phong<.. Kiem_tra_tinh_trang_phong : <<includes>>
-Dat_phong <.. So_luong_phong : <<includes>>
-Dat_phong <.. Chon_ngay_checkin_checkout : <<includes>>
-Dat_phong <.. Chon_loai_phong : <<includes>>
+Xac_nhan_dat_phong ..> Kiem_tra_ve_thoi_gian : <<includes>>
+Xac_nhan_dat_phong ..> Kiem_tra_tinh_trang_phong : <<includes>>
+Dat_phong ..> So_luong_phong : <<includes>>
+Dat_phong ..> Chon_ngay_checkin_checkout : <<includes>>
+Dat_phong ..> Chon_loai_phong : <<includes>>
 
 
 @enduml

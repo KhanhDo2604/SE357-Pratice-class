@@ -1,6 +1,4 @@
-
-@startuml 'Quản lý sự kiện'
-
+@startuml
 left to right direction
 skinparam packageStyle rectangle
 
@@ -14,15 +12,13 @@ Khách_hàng -- (Đặt sự kiện)
 (Hủy sự kiện) ..> (Đăng nhập): <<includes>>
 (Đặt sự kiện) ..> (Đăng nhập): <<includes>>
 
-(Đặt sự kiện) <.. (Điền thông tin) : <<extends>>
-(Đặt sự kiện) <.. (Chọn loại hình sự kiện) : <<extends>>
-(Đặt sự kiện) <.. (Chọn thời gian) : <<extends>>
+(Đặt sự kiện) ..> (Điền thông tin) : <<includes>>
+(Đặt sự kiện) ..> (Chọn loại hình sự kiện) : <<includes>>
+(Đặt sự kiện) ..> (Chọn thời gian) : <<includes>>
 (Quản lý sự kiện) <.. (Chỉnh sửa thông tin sự kiện) : <<extends>>
 
 Nhân_viên -- (Quản lý sự kiện)
 (Quản lý sự kiện) ..> (Đăng nhập): <<includes>>
 (Quản lý sự kiện) <.. (Xác nhận sự kiện) : <<extends>>
 (Quản lý sự kiện) <.. (Quản lý lịch trình sự kiện) : <<extends>>
-
-
 @enduml

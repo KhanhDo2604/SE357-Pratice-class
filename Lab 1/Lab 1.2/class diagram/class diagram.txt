@@ -9,21 +9,22 @@ class Person {
 }
 
 class Customer {
-  -customerId:String
+  -customerId: String
   +Đặt phòng(): void
 }
 
 class Employee {
-  -employeeId: string
+  -employeeId: String
   -Chức vụ: string
   +Đặt phòng(): void
   +Xác nhận đặt/hủy phòng(): void
   +Xác nhận đặt/hủy sự kiện(): void
   +Chỉnh sửa thông tin khách hàng(customerId): void
+  +Báo cáo, thống kê doanh thu(): void
 }
 
 class Event {
-  -eventId: string
+  -eventId: String
   -Loại sự kiện: string
   -Tên sự kiện: string
   -Thời gian diễn ra: datetime
@@ -43,15 +44,22 @@ class RoomType {
 }
 
 class Reservation {
-  -reservationId: string
-  -employeeId: string
-  -customerId:String
-  -Danh sách phòng chọn: array
+  -reservationId: String
+  -employeeId: String
+  -customerId: String
+  -Danh sách phòng chọn: List<Room>
   -Thời gian check-in: datetime
   -Thời gian check-out: datetime
   -Số lượng người: int
   -Trạng thái đơn: int
   -Tổng giá: int
+  -Báo cáo doanh thu: Report
+}
+
+class Report {
+  -reportId: String
+  -reportType: string
+  -reportData: string
 }
 
 Person <|-- Employee
@@ -62,5 +70,6 @@ Room "1" -o "0..1" Reservation: thuộc
 Room "1" - "1" RoomType: thuộc
 Event "0..*" --* "1" Customer: đặt
 Event "0..*" -o "1" Employee: đặt
-
+Employee "0..*" *-- "0..*" Report: tạo
+Reservation "0..*" --* "1" Report: thuộc
 @enduml

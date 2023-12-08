@@ -1,0 +1,31 @@
+@startuml
+left to right direction
+
+actor "Người quản lý" as Manager
+
+usecase "Xem Báo cáo Doanh thu" as ViewReport
+usecase "Thống kê số lượt đặt phòng/sự kiện theo tháng" as BookingStatistics
+usecase "Xem Báo cáo Đánh giá Khách hàng" as ViewCustomerReviews
+usecase "So Sánh Dữ liệu Thực Tế và Dự Kiến" as CompareActualExpected
+usecase "Thống kê, báo cáo Chi Phí" as ViewExpenseReport
+usecase "Phân tích Thị trường và Khách hàng" as AnalyzeMarketCustomer
+usecase "Xem Báo cáo Chiến lược Giá" as ViewPricingStrategy
+usecase "Đăng nhập" as Dang_nhap
+
+Manager -- ViewReport
+Manager -- BookingStatistics
+Manager -- ViewCustomerReviews
+Manager -- CompareActualExpected
+Manager -- ViewExpenseReport
+Manager -- AnalyzeMarketCustomer
+Manager -- ViewPricingStrategy
+
+ViewReport ..> Dang_nhap : <<includes>>
+BookingStatistics ..> Dang_nhap : <<includes>>
+ViewCustomerReviews ..> Dang_nhap : <<includes>>
+CompareActualExpected ..> Dang_nhap : <<includes>>
+ViewExpenseReport ..> Dang_nhap : <<includes>>
+AnalyzeMarketCustomer ..> Dang_nhap : <<includes>>
+ViewPricingStrategy ..> Dang_nhap : <<includes>>
+
+@enduml

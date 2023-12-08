@@ -1,0 +1,30 @@
+@startuml
+|Người quản lý|
+start
+:Đăng nhập vào hệ thống;
+if (Đăng nhập thành công?) then (Yes)
+  fork
+    :Xem Báo cáo Doanh thu;
+  fork again
+    :Thống kê số lượt đặt phòng/sự kiện theo tháng;
+  fork again
+    :Lấy dữ liệu thống kê;
+  fork again
+    :Xem Báo cáo Đánh giá Khách hàng;
+  fork again
+    :So Sánh Dữ liệu Thực Tế và Dự Kiến;
+  fork again
+    :Thống kê, báo cáo Chi Phí;
+  fork again
+    :Phân tích Thị trường và Khách hàng;
+  fork again
+    :Xem Báo cáo Chiến lược Giá;
+  endfork
+  :Đăng xuất;
+  
+else (No)
+  :Hiển thị thông báo lỗi đăng nhập;
+endif
+|Người quản lý|
+stop
+@enduml

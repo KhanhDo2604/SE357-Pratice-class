@@ -12,7 +12,7 @@ XÂY DỰNG HỆ THỐNG QUẢN LÝ KHÁCH SẠN
 - [Nguyen Trinh Dong - dongnt@uit.edu.vn)
 - [Vu Tuan Hai - https://github.com/vutuanhai237)
 
-**Description**: Mục đích của dự án xây dựng hệ thống quản lý khách sạn là tạo ra một phần mềm chuyên nghiệp giúp quản lý khách sạn tối ưu hóa quy trình kinh doanh. Hệ thống này sẽ đảm bảo việc quản lý thông tin khách hàng, quản lý phòng, đặt phòng, và các sự kiện diễn ra một cách hiệu quả. 
+**Description**: Mục đích của dự án xây dựng hệ thống quản lý khách sạn là tạo ra một phần mềm chuyên nghiệp giúp quản lý khách sạn tối ưu hóa quy trình kinh doanh. Hệ thống này sẽ đảm bảo việc quản lý thông tin khách hàng, quản lý phòng, đặt phòng, các sự kiện và báo cáo thống kê diễn ra một cách hiệu quả. 
 
 **How to use**:
 

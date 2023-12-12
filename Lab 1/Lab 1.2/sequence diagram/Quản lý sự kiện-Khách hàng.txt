@@ -24,14 +24,14 @@ alt Đăng nhập thành công
 
   system -> db: Lưu thông tin sự kiện
   activate db
-  db --> system : Cập nhật hệ thống
+  db -->> system : Cập nhật hệ thống
   deactivate db
 
   autonumber 3.1
   customer -> system: Hủy sự kiện (nếu đã có đặt trước)
   system -> db: Kiểm tra có đặt sự kiện trước đó
   activate db
-  db --> system : Trả về kết quả
+  db -->> system : Trả về kết quả
   deactivate db
 
   alt Đã đặt sự kiện trước đó

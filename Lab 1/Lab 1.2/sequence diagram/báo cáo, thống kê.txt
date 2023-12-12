@@ -1,0 +1,92 @@
+@startuml
+actor "Người quản lý" as Manager
+
+participant "Hệ thống" as System
+database "Database" as db
+
+autonumber 1.1
+Manager -> System: Đăng nhập
+activate System
+System -> db: Kiểm tra đăng nhập
+activate db
+db -->> System : Trả về kết quả đăng nhập
+deactivate db
+
+alt Đăng nhập thành công
+ autonumber 2.1
+ Manager -> System: Xem Báo cáo Doanh thu
+ activate System
+ System -> db: Truy vấn dữ liệu doanh thu
+ activate db
+ db -->> System: trả về dữ liệu
+ deactivate db
+ Manager -> System: Thực hiện phân tích báo cáo
+ deactivate System
+
+ autonumber 3.1
+ Manager -> System: Thống kê số lượt đặt phòng/sự kiện theo tháng
+ Manager -> System: Lấy dữ liệu thống kê 
+ activate System
+ System -> db: Truy vấn dữ liệu doanh thu
+ activate db
+ db -->> System: trả về dữ liệu
+ deactivate db
+ deactivate System
+
+ autonumber 4.1
+ Manager -> System: Lấy đánh giá từ khách hàng
+ activate System
+ System -> db: Truy vấn dữ liệu đánh giá
+ activate db
+ db -->> System: trả về dữ liệu đánh giá
+ deactivate db
+ Manager -> System: Xem Báo cáo Đánh giá Khách hàng
+ deactivate System
+ 
+ autonumber 5.1
+ Manager -> System: So Sánh Dữ liệu Thực Tế và Dự Kiến
+ activate System
+ System -> db: Truy vấn dữ liệu 
+ activate db
+ db -->> System: trả về dữ liệu 
+ deactivate db
+ Manager -> System: So sánh dữ liệu
+ deactivate System
+
+ autonumber 6.1
+ Manager -> System: Lấy dữ liệu chi phí
+ activate System
+ System -> db: Truy vấn dữ liệu chi phí
+ activate db
+ db -->> System: trả về dữ liệu chi phí
+ deactivate db
+ Manager -> System: Thống kê, báo cáo Chi Phí
+ deactivate System
+
+ autonumber 7.1
+ Manager -> System: Phân tích Thị trường và Khách hàng
+ activate System
+ System -> db: Truy vấn dữ liệu thị trường và khách hàng 
+ activate db
+ db -->> System: trả về dữ liệu
+ deactivate db
+ deactivate System
+
+ autonumber 8.1
+ Manager -> System: Xem Báo cáo Chiến lược Giá
+ activate System
+ System -> db: Truy vấn dữ liệu giá cả
+ activate db
+ db -->> System: trả về dữ liệu
+ deactivate db
+ deactivate System
+
+
+else Đăng nhập không thành công
+  autonumber 1.4
+  System -->> Manager : Thông báo lỗi đăng nhập
+end
+Manager -> System: Đăng xuất
+deactivate System
+
+@enduml
